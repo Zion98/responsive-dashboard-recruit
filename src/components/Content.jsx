@@ -43,11 +43,9 @@ const Content = () => {
         />
       </div>
 
-      <Table payload={payload}/>
+      <Table payload={payload} />
     </DashboardWrapper>
   );
 };
-
-
 
 export default Content;

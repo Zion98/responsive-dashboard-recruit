@@ -14,7 +14,6 @@ const Table = ({ payload }) => {
     setModal(false);
   };
 
-
   return (
     <TableWrapper>
       <div className="table-title ">
@@ -145,9 +144,9 @@ const TableWrapper = styled.div`
     padding: 1rem !important;
   }
 
-  @media only screen and (max-width: 999px) {
+  @media only screen and (max-width: 990px) {
     .table-container {
-      width: 450px !important;
+      max-width: 900px !important;
       overflow-x: scroll;
     }
     table {
@@ -156,10 +155,15 @@ const TableWrapper = styled.div`
       max-width: fit-content;
       margin: 0 auto;
       overflow-x: auto;
-     white-space: nowrap;
+      white-space: nowrap;
     }
+  }
 
-  
+  @media only screen and (max-width: 450px) {
+    .table-container {
+      max-width: 450px !important;
+      overflow-x: scroll;
+    }
   }
 `;
 

@@ -5,7 +5,11 @@ import decagon from "../assets/decagon2.svg";
 const Sidebar = ({ slide, setSlide }) => {
   return (
     <SideBarWrapper slide={slide} className="slide_right">
-      {slide && <button onClick={() => setSlide(!slide)}>x</button>}
+      <div className="cancel-div">
+        <button className="cancel-btn" onClick={() => setSlide(!slide)}>
+          ❌
+        </button>
+      </div>
 
       <div>
         <img src={decagon} alt="decagonLogo" />
@@ -152,16 +156,15 @@ const SideBarWrapper = styled.div`
   z-index: 9;
   height: 100vh;
 
-  @media only screen and (max-width: 999px) {
-    width: 240px;
-    position: fixed;
-    overflow-y: auto;
-    transform: translateX(-245px);
-    transition: all 0.6s ease-in-out;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-    z-index: 2;
-    height: 100%;
-    transform: ${({ slide }) => (slide === true ? `translateX(0)` : null)};
+  .cancel-div {
+    width: 100%;
+    display: none;
+  }
+
+  .cancel-btn {
+    border: none;
+    background: transparent;
+    float: right;
   }
 
   .dashboard {
@@ -219,6 +222,22 @@ const SideBarWrapper = styled.div`
     position: relative;
     top: 10rem;
     color: #34a853;
+  }
+
+  @media only screen and (max-width: 999px) {
+    width: 240px;
+    position: fixed;
+    overflow-y: auto;
+    transform: translateX(-245px);
+    transition: all 0.6s ease-in-out;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+    height: 100%;
+    transform: ${({ slide }) => (slide === true ? `translateX(0)` : null)};
+
+    .cancel-div {
+      display: block;
+    }
   }
 `;
 
